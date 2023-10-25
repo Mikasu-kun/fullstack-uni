@@ -1,0 +1,2 @@
+flowchart TD
+    A[User see's a link to the page] --> B(he clicks it)

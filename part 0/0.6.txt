@@ -1,0 +1,2 @@
+flowchart TD
+    A[User thinks about what note he wants to submit] --> |He's type's it to a input field| B(he clicks a submit button)
