@@ -33,32 +33,7 @@ const App = () => {
     if (duplicatePerson !== undefined) {
       if (duplicatePerson.number === newNumber)
         return alert(`${newName} is already present in the phonebook.`);
-      else if (
-        window.confirm(
-          `${newName} is already present in the phonebook. Should their number be replaced?`
-        )
-      ) {
-        personService
-          .update(duplicatePerson.id, {
-            ...duplicatePerson,
-            number: newNumber,
-          })
-          .then((updatedPerson) => {
-            setPersons(
-              persons.map((person) =>
-                person.id !== updatedPerson.id ? person : updatedPerson
-              )
-            );
-            showNotification(`Updated "${newName}".`);
-          })
-          .catch(() => {
-            setPersons(
-              persons.filter((person) => person.id !== duplicatePerson.id)
-            );
-            showNotification(`Failed to update "${newName}".`, 'error');
-          });
-      }
-    } else {
+      else {
       personService
         .create({ name: newName, number: newNumber })
         .then((person) => {
